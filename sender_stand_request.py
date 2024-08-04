@@ -3,9 +3,13 @@ import configuration
 
 
 # CREACIÓN de un NUEVO USUARIO
-def post_new_user(body):
+def post_new_user(body, auth_token):
+    headers = {
+        "Authorization": f"Bearer {auth_token}"
+    }
     return requests.post(configuration.URL_SERVICE + configuration.CREATE_USER_PATH,
-                         json=body)
+                         json=body,
+                         headers=headers)
 
 # CREACIÓN de un NUEVO KIT de usuario
 def post_new_user_kit(kit_body, auth_token):
@@ -18,4 +22,4 @@ def post_new_user_kit(kit_body, auth_token):
 
 # OBTENER lista de USUARIO EXISTENTES
 def get_users_table():
-    return requests.get(configuration.URL_SERVICE + configuration.USERS_TABLE_PAT
+    return requests.get(configuration.URL_SERVICE + configuration.USERS_TABLE_PATH)
