@@ -17,6 +17,3 @@ def post_new_user_kit(kit_body, auth_token):
                          json=kit_body,
                          headers=headers)
 
-# OBTENER lista de USUARIO EXISTENTES
-def get_users_table():
-    return requests.get(configuration.URL_SERVICE + configuration.USERS_TABLE_PATH)
